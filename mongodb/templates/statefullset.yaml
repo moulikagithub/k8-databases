@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: awsmouli/mongodb:{{ .values.statefullset.imageVersion }}
+        image: "awsmouli/mongodb:{{ .values.statefullset.imageVersion }}"
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
