@@ -27,7 +27,7 @@ spec:
         image: rabbitmq
         envFrom:
         - secretRef:
-          name: rabbitmq
+           name: rabbitmq
         volumeMounts:
         - name: rabbitmq
           mountPath: /var/lib/rabbitmq
