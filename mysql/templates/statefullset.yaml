@@ -29,9 +29,9 @@ spec:
         - "--ignore-db-dir=lost+found"
         envFrom:
         - configMapRef:
-          name: mysql
+           name: mysql
         - secretRef:
-          name: mysql
+           name: mysql
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
