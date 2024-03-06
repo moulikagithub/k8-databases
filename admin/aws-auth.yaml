@@ -11,7 +11,6 @@ data:
       - roboshop-pod-reader
       userarn: arn:aws:iam::693226652489:user/ramesh
       username: ramesh
-  mapUsers: |
     - groups:
       - roboshop-admin
       userarn: arn:aws:iam::693226652489:user/moulika
