@@ -1,0 +1,19 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::693226652489:role/eksctl-roboshop-nodegroup-spot-NodeInstanceRole-IIpFSlJTYsrZ
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - roboshop-pod-reader
+      userarn: arn:aws:iam::693226652489:user/mouli
+      username: mouli
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+  uid: 8a243175-4bb0-48ad-92a0-8fe19090900e
+
