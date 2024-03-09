@@ -34,5 +34,5 @@ spec:
             cpu: "100m"
             memory: "256Mi"
         envFrom:
-        - configMapRef:
+        - secretRef:
             name: payment
