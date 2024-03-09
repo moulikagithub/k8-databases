@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: "awsmouli/shipping:{{ .Values.deployment.version }}"
+        image: "awsmouli/shipping:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
