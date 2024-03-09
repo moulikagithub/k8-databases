@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: "awsmouli/payment:{{ .Values.deployment.version }}"
+        image: "awsmouli/payment:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
