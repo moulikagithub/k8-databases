@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: cart
-        image: "awsmouli/cart:{{ .Values.deployment.version }}"
+        image: "awsmouli/cart:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
