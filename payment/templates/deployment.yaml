@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: roboshop
+  labels:
+     app: payment
+     project: roboshop
+     teir: app
+
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+        app: payment
+        project: roboshop
+        teir: app
+  template:
+    metadata:
+      labels:
+        app: payment
+        project: roboshop
+        teir: app
+    spec:
+      containers:
+      - name: payment
+        image: "awsmouli/payment:{{ .Values.deployment.version }}"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
+        envFrom:
+        - configMapRef:
+            name: payment

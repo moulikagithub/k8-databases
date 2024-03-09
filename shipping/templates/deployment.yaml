@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+     app: shiping
+     project: roboshop
+     teir: app
+
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+        app: shipping
+        project: roboshop
+        teir: app
+  template:
+    metadata:
+      labels:
+        app: shipping
+        project: roboshop
+        teir: app
+    spec:
+      containers:
+      - name: shipping
+        image: "awsmouli/shipping:{{ .Values.deployment.version }}"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
+        envFrom:
+        - configMapRef:
+            name: shipping

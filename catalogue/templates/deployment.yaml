@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue
+  namespace: roboshop
+  labels:
+     app: catalogue
+     project: roboshop
+     teir: app
+
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+        app: catalogue
+        project: roboshop
+        teir: app
+  template:
+    metadata:
+      labels:
+        app: catalogue
+        project: roboshop
+        teir: app
+    spec:
+      containers:
+      - name: catalogue
+        image: "awsmouli/catalogue:{{ .Values.deployment.version }}"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
+        envFrom:
+        - configMapRef:
+            name: catalogue
