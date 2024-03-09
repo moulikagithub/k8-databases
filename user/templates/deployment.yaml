@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: "awsmouli/user:{{ .Values.deployment.version }}"
+        image: "awsmouli/user:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
